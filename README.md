@@ -16,7 +16,7 @@
 - **描述**: 印度松树数据集是一个常用于高光谱图像处理的基准数据集，包含来自印第安纳州普渡大学实验农场的224个波段的高光谱图像。此数据集用于测试分类算法的性能。
 - **像素大小**: 145 x 145
 - **波段数**: 200（pre）
-- **GT 图像**: ![Ground Truth Image](https://www.ehu.eus/ccwintco/images/2/26/Indian_pines_gt.png)
+- **GT 图像**: ![Ground Truth Image](https://production-media.paperswithcode.com/datasets/Indian_Pines-0000000500-cc013448_8g6nORw.jpg)
 
 #### 2. 帕维亚大学（PU）数据集
 - **数据采集时间**: 2001年
