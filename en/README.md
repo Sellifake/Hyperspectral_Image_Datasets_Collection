@@ -1,65 +1,33 @@
-# Hyperspectral_Image_Datasets_Collection
+# Hyperspectral Image Datasets Collection
 
-## Choose Language / 选择语言
-- [English](#english)
-- [中文](#中文)
-
-## English
 ### Introduction
 This repository contains commonly used hyperspectral image datasets for research purposes. The datasets are also available on Baidu Netdisk and Quark Netdisk.
 
 ### Datasets
-#### 1. Indian Pines (IP)
-- **Data Collection Time**: [Add Date]
-- **Original Link**: [Add Original Link]
-- **Description**: [Add Description]
-- **Pixel Size and Bands**: [Add Pixel Size and Bands]
-- **Ground Truth Image**: [Add Ground Truth Image]
+#### 1. Indian Pines (IP) Dataset
+- **Data Collection Time**: 1992
+- **Original Link**: [Indian Pines Dataset](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Indian_Pines)
+- **Description**: The Indian Pines dataset is a commonly used benchmark in hyperspectral image processing, containing 224-band hyperspectral images from Purdue University's agricultural site in Indiana. It is used to test the performance of classification algorithms.
+- **Pixel Size**: 145 x 145
+- **Number of Bands**: 200 (pre)
 
-#### 2. Pavia University (PU)
-- **Data Collection Time**: [Add Date]
-- **Original Link**: [Add Original Link]
-- **Description**: [Add Description]
-- **Pixel Size and Bands**: [Add Pixel Size and Bands]
-- **Ground Truth Image**: [Add Ground Truth Image]
 
-#### 3. Houston University (HU)
-- **Data Collection Time**: [Add Date]
-- **Original Link**: [Add Original Link]
-- **Description**: [Add Description]
-- **Pixel Size and Bands**: [Add Pixel Size and Bands]
-- **Ground Truth Image**: [Add Ground Truth Image]
+#### 2. Pavia University (PU) Dataset
+- **Data Collection Time**: 2001
+- **Original Link**: [Pavia University Dataset](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Pavia_University)
+- **Description**: The Pavia University dataset contains hyperspectral images from the center and surroundings of Pavia, Italy, used for testing hyperspectral image classification and target detection algorithms.
+- **Pixel Size**: 610 x 340
+- **Number of Bands**: 103
+
+
+#### 3. Houston University (HU) Dataset
+- **Data Collection Time**: 2013
+- **Original Link**: [Houston University Dataset](https://hyperspectral.ee.uh.edu/?page_id=459)
+- **Description**: The Houston University dataset was used in the IEEE GRSS Data Fusion Contest, containing hyperspectral images and corresponding ground truth labels from the urban area of Houston, Texas, for evaluating classification algorithms.
+- **Pixel Size**: 349 x 1905
+- **Number of Bands**: 144
+
 
 ### Download Links
 - **Baidu Netdisk**: [Add Baidu Netdisk Link]
 - **Quark Netdisk**: [Add Quark Netdisk Link]
-
-## 中文
-### 介绍
-本仓库包含常用的高光谱图像数据集，供科研使用。数据集也可以在百度网盘和夸克网盘上获取。
-
-### 数据集
-#### 1. 印度松树（IP）数据集
-- **数据采集时间**: [添加日期]
-- **原始链接**: [添加原始链接]
-- **描述**: [添加描述]
-- **像素大小及波段数**: [添加像素大小及波段数]
-- **GT 图像**: [添加 GT 图像]
-
-#### 2. 帕维亚大学（PU）数据集
-- **数据采集时间**: [添加日期]
-- **原始链接**: [添加原始链接]
-- **描述**: [添加描述]
-- **像素大小及波段数**: [添加像素大小及波段数]
-- **GT 图像**: [添加 GT 图像]
-
-#### 3. 休斯顿大学（HU）数据集
-- **数据采集时间**: [添加日期]
-- **原始链接**: [添加原始链接]
-- **描述**: [添加描述]
-- **像素大小及波段数**: [添加像素大小及波段数]
-- **GT 图像**: [添加 GT 图像]
-
-### 下载链接
-- **百度网盘**: [添加百度网盘链接]
-- **夸克网盘**: [添加夸克网盘链接]
