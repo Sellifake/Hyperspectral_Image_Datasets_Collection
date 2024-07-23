@@ -1,4 +1,4 @@
-# Hyperspectral_Image_Datasets_Collection# Hyperspectral Image Datasets
+# Hyperspectral_Image_Datasets_Collection
 
 ## Choose Language / 选择语言
 - [English](#english)
