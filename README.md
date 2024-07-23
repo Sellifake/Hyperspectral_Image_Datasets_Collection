@@ -16,7 +16,7 @@
 - **描述**: 印度松树数据集是一个常用于高光谱图像处理的基准数据集，包含来自印第安纳州普渡大学实验农场的224个波段的高光谱图像。此数据集用于测试分类算法的性能。
 - **像素大小**: 145 x 145
 - **波段数**: 200（pre）
-
+- **GT 图像**:[url_to_gt_image](https://www.ehu.eus/ccwintco/index.php?title=Archivo:Indian_pines_gt.png)
 
 #### 2. 帕维亚大学（PU）数据集
 - **数据采集时间**: 2001年
@@ -24,7 +24,7 @@
 - **描述**: 帕维亚大学数据集包含来自意大利帕维亚市中心及其周围区域的高光谱图像，用于测试高光谱图像分类和目标检测算法。
 - **像素大小**: 610 x 340
 - **波段数**: 103
-- **GT 图像**: ![Pavia University Ground Truth](url_to_gt_image)
+- **GT 图像**: ![Pavia University Ground Truth](https://www.ehu.eus/ccwintco/uploads/thumb/e/e8/PaviaU_gt.png/300px-PaviaU_gt.png)
 
 #### 3. 休斯顿大学（HU）数据集
 - **数据采集时间**: 2013年
