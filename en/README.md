@@ -10,7 +10,7 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Description**: The Indian Pines dataset is a commonly used benchmark in hyperspectral image processing, containing 224-band hyperspectral images from Purdue University's agricultural site in Indiana. It is used to test the performance of classification algorithms.
 - **Pixel Size**: 145 x 145
 - **Number of Bands**: 200 (pre)
-- **GT 图像**:[url_to_gt_image](https://www.ehu.eus/ccwintco/index.php?title=Archivo:Indian_pines_gt.png)
+- **GT 图像**:(![url_to_gt_image](https://www.ehu.eus/ccwintco/index.php?title=Archivo:Indian_pines_gt.png))
 
 #### 2. Pavia University (PU) Dataset
 - **Data Collection Time**: 2001
@@ -26,8 +26,7 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Description**: The Houston University dataset was used in the IEEE GRSS Data Fusion Contest, containing hyperspectral images and corresponding ground truth labels from the urban area of Houston, Texas, for evaluating classification algorithms.
 - **Pixel Size**: 349 x 1905
 - **Number of Bands**: 144
-- **GT 图像**:(![url_to_gt_image](http://hyperspectral.ee.uh.edu/wp-content/uploads/2012/11/2013_DFTC.png))
+- **GT 图像**:(![url_to_gt_image](https://production-media.paperswithcode.com/datasets/Screen_Shot_2021-01-27_at_9.46.45_PM.png))
 
 ### Download Links
-- **Baidu Netdisk**: [Add Baidu Netdisk Link]
-- **Quark Netdisk**: [Add Quark Netdisk Link]
+- **Baidu Netdisk**: [(https://pan.baidu.com/s/13Bd_8vZT9pIfqbTxNYlyEw?pwd=v81w)]
