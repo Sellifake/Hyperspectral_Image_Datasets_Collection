@@ -9,8 +9,9 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Original Link**: [Indian Pines Dataset](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Indian_Pines)
 - **Description**: The Indian Pines dataset is a commonly used benchmark in hyperspectral image processing, containing 224-band hyperspectral images from Purdue University's agricultural site in Indiana. It is used to test the performance of classification algorithms.
 - **Pixel Size**: 145 x 145
-- **Number of Bands**: 200 (pre)
-- **GT image**: ![Ground Truth Image](https://production-media.paperswithcode.com/datasets/Indian_Pines-0000000500-cc013448_8g6nORw.jpg)
+- **Number of Bands**: 224(origional)/200 (corrected:After removing the bands covering the region of water absorption)
+- **Class number**：16 [Details](data/Indian_Pines/details.md)
+- **GT(label) image**: ![Ground Truth Image](data/Indian_Pines/gt.png)
 
 #### 2. Pavia University (PU) Dataset
 - **Data Collection Time**: 2001
