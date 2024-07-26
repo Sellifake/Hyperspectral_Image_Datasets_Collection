@@ -1,8 +1,8 @@
 # Hyperspectral_Image_Datasets_Collection
 
 ## 选择语言
-- [English](en/README.md)
 - [中文](#中文)
+- [English](en/README.md)
 
 ## 中文
 
@@ -16,19 +16,22 @@
 #### 1. 印度松树（IP）数据集
 - **数据采集时间**: 1992年
 - **原始链接**: [Indian Pines Dataset](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Indian_Pines)
-- **描述**: 印度松树数据集是一个常用于高光谱图像处理的基准数据集，包含来自印第安纳州普渡大学实验农场的224个波段的高光谱图像。此数据集用于测试分类算法的性能。
+- **描述**: 印度松树数据集是一个常用于高光谱图像处理的基准数据集，包含来自印第安纳州普渡大学实验农场的224个波段的高光谱图像。
 - **像素大小**: 145 x 145
 - **波段数**: 224(原始)/200(去除吸水波段)
-- **类别总数**：16 [Details](data/Indian_Pines/details.md)
-- **GT(标签) 图像**: ![Ground Truth Image](data/Indian_Pines/gt.png)
+- **类别总数**：16 [Details](data/Indian_Pines/Class_details.md)
+- **GT(标签) 图像**
+![Ground Truth Image](data/Indian_Pines/300px-Indian_pines_gt.png)
 
 #### 2. 帕维亚大学（PU）数据集
 - **数据采集时间**: 2001年
-- **原始链接**: [Pavia University Dataset](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Pavia_University)
-- **描述**: 帕维亚大学数据集包含来自意大利帕维亚市中心及其周围区域的高光谱图像，用于测试高光谱图像分类和目标检测算法。
-- **像素大小**: 610 x 340
+- **原始链接**: [Pavia University Dataset](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Pavia_Centre_and_University)
+- **描述**: ROSIS传感器在意大利北部帕维亚上空飞行时拍摄的两个场景。
+- **像素大小**: 610 x 610(大学)/610 x 340(去除黑色像素)
 - **波段数**: 103
-- **GT 图像**: (![Pavia University Ground Truth](https://www.ehu.eus/ccwintco/uploads/thumb/e/e8/PaviaU_gt.png/300px-PaviaU_gt.png))
+- **类别总数**：9 [Details](data/Pavia/Class_details.md)
+- **GT 图像**: 
+![Pavia University Ground Truth](data/Pavia/300px-PaviaU_gt.png)
 
 #### 3. 休斯顿大学（HU）数据集
 - **数据采集时间**: 2013年
