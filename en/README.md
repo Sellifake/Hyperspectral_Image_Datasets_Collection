@@ -4,7 +4,7 @@
 This repository contains commonly used hyperspectral image datasets used during my graduate studies. The datasets are also available on Baidu Netdisk and Quark Netdisk.
 
 ### Download Links
-- **Baidu Netdisk**: [(https://pan.baidu.com/s/13Bd_8vZT9pIfqbTxNYlyEw?pwd=v81w)]
+- **Baidu Netdisk**: [All data](https://pan.baidu.com/s/16hqvgJrxAgLm9_0o1Ljbwg?pwd=vstw)
 
 ### Datasets
 #### 1. Indian Pines (IP) Dataset
@@ -25,8 +25,8 @@ This repository contains commonly used hyperspectral image datasets used during 
 - **Pixel Size**: 610 x 610(University)/610 x 340(Exclude backgroungd pixel)
 - **Number of Bands**: 103
 - **Class number**：[9](data/Pavia/Class_details.md)
-- **GT igame**:
-![Pavia University Ground Truth](data/Pavia/300px-PaviaU_gt.png)
+- **GT 图像**: 
+![Pavia University Ground Truth](../data/Pavia/300px-PaviaU_gt.png)
 ---
 
 ### 3. Salinas Dataset

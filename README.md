@@ -10,7 +10,7 @@
 本仓库包含本人在研究生期间常用的高光谱图像数据集，。数据集也可以在百度网盘上获取。
 
 ### 下载链接
-- **百度网盘**: [全部数据连接](https://pan.baidu.com/s/13Bd_8vZT9pIfqbTxNYlyEw?pwd=v81w)
+- **百度网盘**: [全部数据连接](https://pan.baidu.com/s/16hqvgJrxAgLm9_0o1Ljbwg?pwd=vstw)
 
 ### 数据集
 #### 1. 印度松树（IP）数据集
