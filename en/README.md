@@ -1,7 +1,7 @@
 # Hyperspectral Image Datasets Collection
 
 ### Introduction
-This repository contains commonly used hyperspectral image datasets for research purposes. The datasets are also available on Baidu Netdisk and Quark Netdisk.
+This repository contains commonly used hyperspectral image datasets used during my graduate studies. The datasets are also available on Baidu Netdisk and Quark Netdisk.
 
 ### Download Links
 - **Baidu Netdisk**: [(https://pan.baidu.com/s/13Bd_8vZT9pIfqbTxNYlyEw?pwd=v81w)]
@@ -16,6 +16,7 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Class number**：[16](../data/Indian_Pines/Class_details.md)
 - **GT(label) image**
 ![Ground Truth Image](../data/Indian_Pines/300px-Indian_pines_gt.png)
+---
 
 #### 2. Pavia University (PU) Dataset
 - **Data Collection Time**: 2001
@@ -26,6 +27,7 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Class number**：[9](data/Pavia/Class_details.md)
 - **GT igame**:
 ![Pavia University Ground Truth](data/Pavia/300px-PaviaU_gt.png)
+---
 
 ### 3. Salinas Dataset
 - **Data Collection Time**: Unknown
@@ -36,6 +38,7 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Number of Classes**: [16](../data/Salinas/Class_details.md)
 - **GT (Label) Image**:
 ![Ground Truth Image](../data/Salinas/300px-Salinas_gt.png)
+---
 
 #### 4. Kennedy Space Center (KSC) Dataset
 - **Data Collection Time**: March 23, 1996
@@ -46,8 +49,9 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Number of Classes**: [13](../data/KSC/Class_details.md)
 - **GT (Label) Image**:
 ![Ground Truth Image](../data/KSC/gt.png)
+---
 
-#### 4. Botswana Dataset
+#### 5. Botswana Dataset
 - **Data Collection Time**: 2001-2004
 - **Original Link**: [Botswana Dataset](https://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes#Botswana)
 - **Description**: The NASA EO-1 satellite acquired a sequence of data over the Okavango Delta, Botswana in 2001-2004. The Hyperion sensor on EO-1 acquires data at 30 m pixel resolution over a 7.7 km strip in 242 bands covering the 400-2500 nm portion of the spectrum in 10 nm windows. Preprocessing of the data was performed by the UT Center for Space Research to mitigate the effects of bad detectors, inter-detector miscalibration, and intermittent anomalies. Uncalibrated and noisy bands that cover water absorption features were removed, and the remaining 145 bands were included as candidate features.
@@ -56,4 +60,14 @@ This repository contains commonly used hyperspectral image datasets for research
 - **Number of Classes**: [14](../data/Botswana/Class_details.md)
 - **GT (Label) Image**:
 ![Ground Truth Image](../data/Botswana/gt.png)
+---
 
+#### 6. Houston Dataset
+- **Data Collection Time**: 2013
+- **Original Link**: [Houston Dataset](https://hyperspectral.ee.uh.edu/?page_id=459)
+- **Description**: The Houston dataset was used in the IEEE GRSS Data Fusion Contest, containing hyperspectral images and corresponding ground truth labels from the urban area of Houston, Texas. The data was collected in 2013 and consists of 144 bands.
+- **Pixel Size**: 349 x 1905
+- **Number of Bands**: 144
+- **Number of Classes**: [15](../data/Houston/Class_details.md)
+- **GT (Label) Image**:
+![Ground Truth Image](../data/Houston/gt.png)

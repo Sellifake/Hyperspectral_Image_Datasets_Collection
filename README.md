@@ -7,7 +7,7 @@
 ## 中文
 
 ### 介绍
-本仓库包含常用的高光谱图像数据集，供科研使用。数据集也可以在百度网盘上获取。
+本仓库包含本人在研究生期间常用的高光谱图像数据集，。数据集也可以在百度网盘上获取。
 
 ### 下载链接
 - **百度网盘**: [全部数据连接](https://pan.baidu.com/s/13Bd_8vZT9pIfqbTxNYlyEw?pwd=v81w)
@@ -22,6 +22,7 @@
 - **类别总数**：[16](data/Indian_Pines/Class_details.md)
 - **GT(标签) 图像**
 ![Ground Truth Image](data/Indian_Pines/300px-Indian_pines_gt.png)
+---
 
 #### 2. 帕维亚大学（PU）数据集
 - **数据采集时间**: 2001年
@@ -32,6 +33,7 @@
 - **类别总数**：[9](data/Pavia/Class_details.md)
 - **GT 图像**: 
 ![Pavia University Ground Truth](data/Pavia/300px-PaviaU_gt.png)
+---
 
 #### 3. 萨利纳斯（Salinas）数据集
 - **数据采集时间**: 未知
@@ -42,7 +44,7 @@
 - **类别总数**：[16](data/Salinas/Class_details.md)
 - **GT(标签) 图像**:
 ![Ground Truth Image](data/Salinas/300px-Salinas_gt.png)
-
+---
 
 #### 4. 肯尼迪航天中心（KSC）数据集
 - **数据采集时间**: 1996年3月23日
@@ -53,6 +55,7 @@
 - **类别总数**：[13](data/KSC/Class_details.md)
 - **GT(标签) 图像**:
 ![Ground Truth Image](data/KSC/gt.png)
+---
 
 #### 5. 博茨瓦纳（Botswana）数据集
 - **数据采集时间**: 2001-2004年
@@ -63,13 +66,17 @@
 - **类别总数**：[14](data/Botswana/Class_details.md)
 - **GT(标签) 图像**:
 ![Ground Truth Image](data/Botswana/gt.png)
+---
 
-#### 3. 休斯顿大学（HU）数据集
+#### 6. 休斯顿（Houston）数据集
 - **数据采集时间**: 2013年
-- **原始链接**: [Houston University Dataset](https://hyperspectral.ee.uh.edu/?page_id=459)
-- **描述**: 休斯顿大学数据集用于IEEE GRSS数据融合竞赛，包含休斯顿市区的高光谱图像和相应的地面真实标签，用于评估分类算法。
+- **原始链接**: [Houston Dataset](https://hyperspectral.ee.uh.edu/?page_id=459)
+- **描述**: 休斯顿数据集用于IEEE GRSS数据融合竞赛，包含休斯顿市区的高光谱图像和相应的地面真实标签。数据采集时间为2013年，共有144个波段。
 - **像素大小**: 349 x 1905
 - **波段数**: 144
-- **GT 图像**: ![Houston University Ground Truth](https://production-media.paperswithcode.com/datasets/Screen_Shot_2021-01-27_at_9.46.45_PM.png)
+- **类别总数**：[15](data/Houston/Class_details.md)
+- **GT(标签) 图像**:
+![Ground Truth Image](data/Houston/gt.png)
+
 
 
