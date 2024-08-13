@@ -18,3 +18,4 @@
 | 14  | Lettuce_romaine_7wk           | 1070     |
 | 15  | Vinyard_untrained             | 7268     |
 | 16  | Vinyard_vertical_trellis      | 1807     |
+| |Total                               | 58119     |

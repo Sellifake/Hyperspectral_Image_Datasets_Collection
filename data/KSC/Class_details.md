@@ -15,4 +15,4 @@
 | 11  | Cattail_marsh                 | 482      |
 | 12  | Salt_marsh                    | 375      |
 | 13  | Mud_flats                     | 530      |
-| Total                               | 4734     |
+| |Total                               | 4734     |

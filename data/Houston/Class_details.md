@@ -17,4 +17,4 @@
 | 13  | Parking Lot 2                 | 1250     |
 | 14  | Tennis Court                  | 1250     |
 | 15  | Running Track                 | 1250     |
-| Total                               | 18750    |
+| |Total                               | 18750    |

@@ -18,4 +18,4 @@
 | 14  | Woods                         | 1265     |
 | 15  | Buildings-Grass-Trees-Drives  | 386      |
 | 16  | Stone-Steel-Towers            | 93       |
-| Total                               | 10249    |
+|     |Total                               | 10249    |
