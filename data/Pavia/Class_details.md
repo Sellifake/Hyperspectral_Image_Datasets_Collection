@@ -11,3 +11,4 @@
 | 7   | Bitumen                       | 1330     |
 | 8   | Self-Blocking Bricks          | 3682     |
 | 9   | Shadows                       | 947      |
+| Total                               | 39679     |

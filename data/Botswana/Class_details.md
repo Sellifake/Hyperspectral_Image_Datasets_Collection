@@ -16,3 +16,4 @@
 | 12  | Short_mopane                  | 484      |
 | 13  | Mixed_mopane                  | 614      |
 | 14  | Exposed_soils                 | 657      |
+| Total                               | 4866     |
