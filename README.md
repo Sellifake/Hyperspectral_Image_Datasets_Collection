@@ -21,7 +21,7 @@
 - **波段数**: 224(原始)/200(去除吸水波段)
 - **类别总数**：[16](data/Indian_Pines/Class_details.md)
 - **GT(标签) 图像**
-![Ground Truth Image](data/Indian_Pines/300px-Indian_pines_gt.png)
+![Ground Truth Image](data/Indian_Pines/gt.png)
 ---
 
 #### 2. 帕维亚大学（PU）数据集
@@ -32,7 +32,7 @@
 - **波段数**: 103
 - **类别总数**：[9](data/Pavia/Class_details.md)
 - **GT 图像**: 
-![Pavia University Ground Truth](data/Pavia/300px-PaviaU_gt.png)
+![Pavia University Ground Truth](data/Pavia/gt.png)
 ---
 
 #### 3. 萨利纳斯（Salinas）数据集
@@ -43,7 +43,7 @@
 - **波段数**: 224(全部)/204(去除吸水波段)
 - **类别总数**：[16](data/Salinas/Class_details.md)
 - **GT(标签) 图像**:
-![Ground Truth Image](data/Salinas/300px-Salinas_gt.png)
+![Ground Truth Image](data/Salinas/gt.png)
 ---
 
 #### 4. 肯尼迪航天中心（KSC）数据集
