@@ -9,12 +9,12 @@
 
 ### 介绍
 
-本仓库包含本人在研究生期间常用的高光谱图像数据集，数据集也可以在夸克网盘上获取。
+本仓库包含本人在研究生期间常用的高光谱图像数据集介绍，数据集也可以在夸克网盘上和Google Drive上获取。
 
 ### 下载链接
 
-- **夸克网盘**: [全部数据连接](https://pan.baidu.com/s/16hqvgJrxAgLm9_0o1Ljbwg?pwd=vstw)
-
+- **夸克网盘**: [数据连接](https://pan.quark.cn/s/855e6102f57c)
+- **Google Drive**: [数据连接](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=drive_link)
 ### 数据集
 
 #### 1. 印度松树（Indian Pines）数据集
