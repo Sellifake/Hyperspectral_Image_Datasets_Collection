@@ -7,7 +7,7 @@
 ## 下载
 
 - [夸克网盘](https://pan.quark.cn/s/27a871c79b27)
-- [Google Drive](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=drive_link)
+- [Google Drive](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=sharing)
 
 原始数据页和论文列在各数据集条目中。
 

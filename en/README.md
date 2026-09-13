@@ -7,7 +7,7 @@ This repository contains 15 hyperspectral image classification datasets.
 ## Downloads
 
 - [Quark Drive](https://pan.quark.cn/s/27a871c79b27)
-- [Google Drive](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=drive_link)
+- [Google Drive](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=sharing)
 
 The primary data pages and papers are listed with each dataset.
 
