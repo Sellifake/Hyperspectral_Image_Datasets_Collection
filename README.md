@@ -1,115 +1,192 @@
-<div align="center">
-
 # Hyperspectral Image Datasets Collection
 
-**15 个高光谱分类数据集的来源索引、文件规格、标签统计与可视化**
+[English](en/README.md) · [数据来源与引用](SOURCES.md)
 
-[English](en/README.md) · [来源与引用](SOURCES.md) · [类别统计](#ground-truth-预览)
+本仓库收录 15 个高光谱图像分类数据集。
 
-</div>
+## 下载
 
-![15 datasets overview](assets/catalog-overview.png)
+- [夸克网盘](https://pan.quark.cn/s/27a871c79b27)
+- [Google Drive](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=drive_link)
 
-## 仓库范围
+原始数据页和论文列在各数据集条目中。
 
-本仓库整理数据集元数据、原始来源、指定引用、类别像素数和 Ground Truth 预览。高光谱影像本体不提交到 Git 仓库。
+## 数据集
 
-- 数据描述以原始数据页、作者项目页或论文为依据。
-- 空间尺寸统一为 **行 × 列**；立方体尺寸为 **行 × 列 × 波段**。
-- 标注像素数由下载包中的 GT 文件逐像素统计，背景值不计入。
-- “原始来源”“论文”和“社区镜像”分开标注，不把转载页写成原始链接。
-- 详细来源、引用格式、使用条件和文件差异见 [SOURCES.md](SOURCES.md)。
+### 1. 印度松树（Indian Pines）
 
-## 下载入口
+- **采集**：1992 年 6 月 12 日，美国印第安纳州 Tippecanoe County 的 Indian Pine Test Site
+- **传感器**：AVIRIS
+- **数据**：145 × 145 像素，220 个原始波段；校正数据保留 200 个波段，空间分辨率 20 m
+- **类别**：[16 类，10,249 个标注像素](data/Indian_Pines/Class_details.md)
+- **来源**：[Purdue MultiSpec](https://engineering.purdue.edu/~biehl/MultiSpec/hyperspectral.html) · [PURR 数据记录](https://doi.org/10.4231/R7RX991C)
 
-| 入口 | 用途 | 状态 |
-|---|---|---|
-| [夸克网盘](https://pan.quark.cn/s/27a871c79b27) | 中国大陆区域镜像 | 本次更新使用的 HSI_data 目录；实际内容以网盘目录为准 |
-| [Google Drive](https://drive.google.com/drive/folders/1xgSyrXw2NwzOUVaZ2BK1KBzgCDPKYC_n?usp=drive_link) | 备用镜像 | 历史入口；内容可能与夸克镜像不同步 |
-| 下表“来源 / 论文”列 | 原始数据、最新说明和引用要求 | **首选入口** |
+<img src="data/Indian_Pines/preview.png" width="720" alt="Indian Pines ground truth">
 
-> 镜像只用于改善访问速度，不替代原始来源，也不构成再分发授权。需要申请、填写问卷或受用途限制的数据集，应从官方页面获取并遵守其条款。
+---
 
-## 数据集一览
+### 2. 帕维亚大学（Pavia University）
 
-规格依据原始页面和本地下载包核对。波段栏优先写实际分发文件的波段数，并在括号中保留原始传感器或源记录口径。
+- **场景**：意大利北部帕维亚大学校园
+- **传感器**：ROSIS
+- **数据**：610 × 340 像素，103 个波段，空间分辨率 1.3 m
+- **类别**：[9 类，42,776 个标注像素](data/Pavia/Class_details.md)
+- **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-| # | 数据集 | 平台 / 传感器 | 分发文件规格 | GSD | 类别 / 标注像素 | 来源 / 论文 |
-|---:|---|---|---|---:|---:|---|
-| 1 | [Indian Pines](data/Indian_Pines/Class_details.md) | 机载 AVIRIS | 145 × 145 × 220；corrected 为 200 波段 | 20 m | 16 / 10,249 | [Purdue](https://engineering.purdue.edu/~biehl/MultiSpec/hyperspectral.html) · [PURR](https://doi.org/10.4231/R7RX991C) |
-| 2 | [Pavia University](data/Pavia/Class_details.md) | 机载 ROSIS | 610 × 340 × 103 | 1.3 m | 9 / 42,776 | [UPV/EHU](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) |
-| 3 | [Pavia Centre](data/Pavia_Centre/Class_details.md) | 机载 ROSIS | 1096 × 715 × 102 | 1.3 m | 9 / 148,152 | [UPV/EHU](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) |
-| 4 | [Salinas](data/Salinas/Class_details.md) | 机载 AVIRIS | 512 × 217 × 204（原始 224） | 3.7 m | 16 / 54,129 | [UPV/EHU](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) · [AVIRIS 1998](https://aviris.jpl.nasa.gov/ql/listla98.html) |
-| 5 | [Kennedy Space Center](data/KSC/Class_details.md) | 机载 AVIRIS | 512 × 614 × 176（原始 224） | 18 m | 13 / 5,211 | [UPV/EHU](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) |
-| 6 | [Botswana](data/Botswana/Class_details.md) | EO-1 Hyperion | 1476 × 256 × 145（原始 242） | 30 m | 14 / 3,248 | [UPV/EHU](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) |
-| 7 | [Houston 2013](data/Houston/Class_details.md) | 机载 CASI + LiDAR | 1905 × 349 × 144 | 2.5 m | 15 / 15,029 | [IEEE GRSS](https://www.grss-ieee.org/community/technical-committees/2013-ieee-grss-data-fusion-contest/) · [paper](https://doi.org/10.1109/JSTARS.2014.2305441) |
-| 8 | [Trento](data/Trento/Class_details.md) | AISA Eagle + Optech ALTM 3100EA | 166 × 600 × 63 + LiDAR | 1 m | 6 / 30,214 | [paper](https://doi.org/10.1109/JSTARS.2016.2634863) · [社区镜像](https://github.com/tyust-dayu/Trento) |
-| 9 | [WHU-Hi-LongKou](data/WHU-Hi-LongKou/Class_details.md) | UAV / Headwall Nano-Hyperspec | 550 × 400 × 270 | 0.463 m | 9 / 204,542 | [WHU RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [paper](https://doi.org/10.1016/j.rse.2020.112012) |
-| 10 | [WHU-Hi-HanChuan](data/WHU-Hi-HanChuan/Class_details.md) | UAV / Headwall Nano-Hyperspec | 1217 × 303 × 274 | 0.109 m | 16 / 257,530 | [WHU RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [paper](https://doi.org/10.1016/j.rse.2020.112012) |
-| 11 | [WHU-Hi-HongHu](data/WHU-Hi-HongHu/Class_details.md) | UAV / Headwall Nano-Hyperspec | 940 × 475 × 270 | 0.043 m | 22 / 386,693 | [WHU RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [paper](https://doi.org/10.1016/j.rse.2020.112012) |
-| 12 | [Chikusei](data/Chikusei/Class_details.md) | Headwall Hyperspec-VNIR-C | 2517 × 2335 × 128 | 2.5 m | 19 / 77,592 | [作者数据页](https://naotoyokoya.com/Download.html) · SAL-2016-05-27 |
-| 13 | [HyRANK](data/HyRANK/Class_details.md) | EO-1 Hyperion | 5 景，每景 176 波段 | 30 m | 14 类体系 / 33,527¹ | [数据 DOI](https://doi.org/10.5281/zenodo.1222202) · [ISPRS report](https://www.isprs.org/society/si/SI-2017/ISPRS-SI2017-TC3_WG4_Karantzalos_Report.pdf) |
-| 14 | [MUUFL Gulfport](data/MUUFL_Gulfport/Class_details.md) | CASI-1500 + LiDAR | 325 × 220 × 64 + LiDAR² | 1 m² | 11 / 53,687 | [GatorSense / UF](https://github.com/GatorSense/MUUFLGulfport) · [label report](https://ufdc.ufl.edu/IR00009711/00001) |
-| 15 | [Xiongan](data/Xiongan/Class_details.md) | 机载 AMMIS VNIR | 1580 × 3750 × 256³ | 0.5 m | 19³ / 3,341,881 | [数据 DOI](https://doi.org/10.3974/geodb.2021.01.02.V1) · [paper](https://doi.org/10.11834/jrs.20209065) |
+<img src="data/Pavia/preview.png" width="720" alt="Pavia University ground truth">
 
-1. HyRANK 的公开 GT 随 Dioni 和 Loukia 两景提供；33,527 为两景合计，Dioni 实际出现 12 类，Loukia 出现 14 类。
-2. MUUFL 本地包是 Campus 1 的 1 m 下采样、64 有效波段版本；文件元数据记录原始影像为 0.5 m、72 波段。
-3. Xiongan 官方记录写 250 个有效波段和 19 种地物；下载包头文件写 256 个波段，并同时提供 19 类 Groundtruth 与 20 类 Farm_roi。两种口径均保留在 [类别页](data/Xiongan/Class_details.md)。
+---
 
-## 有来源依据的采集信息
+### 3. 帕维亚中心（Pavia Centre）
 
-| 数据集 | 采集时间 / 地点 |
-|---|---|
-| Indian Pines | 1992-06-12；美国印第安纳州 Tippecanoe County 的 Indian Pine Test Site |
-| KSC | 1996-03-23；美国佛罗里达州 Kennedy Space Center |
-| Botswana | 2001-05-31；博茨瓦纳 Okavango Delta |
-| Houston 2013 | LiDAR：2012-06-22；HSI：2012-06-23；University of Houston 及邻近城区 |
-| WHU-Hi-LongKou | 2018-07-17 13:49–14:37；中国湖北省 Longkou Town |
-| WHU-Hi-HanChuan | 2016-06-17 17:57–18:46；中国湖北省 Hanchuan |
-| WHU-Hi-HongHu | 2017-11-20 16:23–17:37；中国湖北省 Honghu City |
-| Chikusei | 2014-07-29 09:56–10:53 (UTC+9)；日本茨城县筑西市 |
-| MUUFL Gulfport | 2010-11-08；美国密西西比州 Long Beach 的 University of Southern Mississippi Gulf Park campus |
-| Xiongan | 2017-10-03 15:40–16:03；中国河北省雄安新区马蹄湾村 |
-| Pavia University / Centre、Salinas、Trento、HyRANK | 本目录没有从原始数据页核实到统一、明确的单一采集时间，故不补写推测日期 |
+- **场景**：意大利北部帕维亚市中心
+- **传感器**：ROSIS
+- **数据**：1096 × 715 像素，102 个波段，空间分辨率 1.3 m
+- **类别**：[9 类，148,152 个标注像素](data/Pavia_Centre/Class_details.md)
+- **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-## Ground Truth 预览
+<img src="data/Pavia_Centre/preview.png" width="720" alt="Pavia Centre ground truth">
 
-预览颜色只用于区分类别；像素标签值没有改变。点击名称查看原始类名和逐类像素数。
+---
 
-<table>
-<tr>
-<td align="center"><a href="data/Indian_Pines/Class_details.md"><img src="data/Indian_Pines/gt.png" width="260" alt="Indian Pines ground truth"><br>Indian Pines</a></td>
-<td align="center"><a href="data/Pavia/Class_details.md"><img src="data/Pavia/gt.png" width="260" alt="Pavia University ground truth"><br>Pavia University</a></td>
-<td align="center"><a href="data/Pavia_Centre/Class_details.md"><img src="data/Pavia_Centre/gt.png" width="260" alt="Pavia Centre ground truth"><br>Pavia Centre</a></td>
-</tr>
-<tr>
-<td align="center"><a href="data/Salinas/Class_details.md"><img src="data/Salinas/gt.png" width="260" alt="Salinas ground truth"><br>Salinas</a></td>
-<td align="center"><a href="data/KSC/Class_details.md"><img src="data/KSC/gt.png" width="260" alt="KSC ground truth"><br>Kennedy Space Center</a></td>
-<td align="center"><a href="data/Botswana/Class_details.md"><img src="data/Botswana/gt.png" width="260" alt="Botswana ground truth"><br>Botswana</a></td>
-</tr>
-<tr>
-<td align="center"><a href="data/Houston/Class_details.md"><img src="data/Houston/gt.png" width="260" alt="Houston ground truth"><br>Houston 2013</a></td>
-<td align="center"><a href="data/Trento/Class_details.md"><img src="data/Trento/gt.png" width="260" alt="Trento ground truth"><br>Trento</a></td>
-<td align="center"><a href="data/WHU-Hi-LongKou/Class_details.md"><img src="data/WHU-Hi-LongKou/gt.png" width="260" alt="WHU-Hi-LongKou ground truth"><br>WHU-Hi-LongKou</a></td>
-</tr>
-<tr>
-<td align="center"><a href="data/WHU-Hi-HanChuan/Class_details.md"><img src="data/WHU-Hi-HanChuan/gt.png" width="260" alt="WHU-Hi-HanChuan ground truth"><br>WHU-Hi-HanChuan</a></td>
-<td align="center"><a href="data/WHU-Hi-HongHu/Class_details.md"><img src="data/WHU-Hi-HongHu/gt.png" width="260" alt="WHU-Hi-HongHu ground truth"><br>WHU-Hi-HongHu</a></td>
-<td align="center"><a href="data/Chikusei/Class_details.md"><img src="data/Chikusei/gt.png" width="260" alt="Chikusei ground truth"><br>Chikusei</a></td>
-</tr>
-<tr>
-<td align="center"><a href="data/HyRANK/Class_details.md"><img src="data/HyRANK/gt.png" width="260" alt="HyRANK ground truth"><br>HyRANK</a></td>
-<td align="center"><a href="data/MUUFL_Gulfport/Class_details.md"><img src="data/MUUFL_Gulfport/gt.png" width="260" alt="MUUFL Gulfport ground truth"><br>MUUFL Gulfport</a></td>
-<td align="center"><a href="data/Xiongan/Class_details.md"><img src="data/Xiongan/gt.png" width="260" alt="Xiongan ground truth"><br>Xiongan</a></td>
-</tr>
-</table>
+### 4. 萨利纳斯（Salinas）
 
-## 复核与维护
+- **场景**：美国加利福尼亚州 Salinas Valley 农业区
+- **传感器**：AVIRIS
+- **数据**：512 × 217 像素，224 个原始波段；去除吸水波段后保留 204 个波段，空间分辨率 3.7 m
+- **类别**：[16 类，54,129 个标注像素](data/Salinas/Class_details.md)
+- **来源**：[UPV/EHU 数据页](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) · [NASA/JPL AVIRIS 1998 飞行索引](https://aviris.jpl.nasa.gov/ql/listla98.html)
 
-预览图由 [scripts/generate_previews.py](scripts/generate_previews.py) 从本地 GT 文件生成。脚本仅读取标签栅格，不复制高光谱立方体；显示缩放使用 nearest-neighbour。
+<img src="data/Salinas/preview.png" width="720" alt="Salinas ground truth">
 
-如果发现元数据或引用错误，请提交 issue，并附原始数据页、论文 DOI 或数据包头文件作为依据。
+---
 
-## 许可说明
+### 5. 肯尼迪航天中心（Kennedy Space Center）
 
-[LICENSE](LICENSE) 仅适用于本仓库自行编写的内容。各数据集仍受其原作者、发布机构和原始许可约束；引用或下载前请先阅读 [来源与使用条件](SOURCES.md)。
+- **采集**：1996 年 3 月 23 日，美国佛罗里达州 Kennedy Space Center
+- **传感器**：AVIRIS
+- **数据**：512 × 614 像素，224 个原始波段；去除吸水和低信噪比波段后保留 176 个波段，空间分辨率 18 m
+- **类别**：[13 类，5,211 个标注像素](data/KSC/Class_details.md)
+- **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
+
+<img src="data/KSC/preview.png" width="720" alt="Kennedy Space Center ground truth">
+
+---
+
+### 6. 博茨瓦纳（Botswana）
+
+- **采集**：2001 年 5 月 31 日，博茨瓦纳 Okavango Delta
+- **传感器**：EO-1 Hyperion
+- **数据**：1476 × 256 像素，242 个原始波段；校正数据保留 145 个波段，空间分辨率 30 m
+- **类别**：[14 类，3,248 个标注像素](data/Botswana/Class_details.md)
+- **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
+
+<img src="data/Botswana/preview.png" width="720" alt="Botswana ground truth">
+
+---
+
+### 7. 休斯顿 2013（Houston 2013）
+
+- **采集**：LiDAR 于 2012 年 6 月 22 日采集，高光谱影像于 6 月 23 日采集；场景为 University of Houston 及邻近城区
+- **传感器**：CASI 高光谱传感器和 LiDAR
+- **数据**：1905 × 349 像素，144 个波段，空间分辨率 2.5 m
+- **类别**：[15 类，15,029 个标注像素](data/Houston/Class_details.md)
+- **来源与论文**：[IEEE GRSS 2013 Data Fusion Contest](https://www.grss-ieee.org/community/technical-committees/2013-ieee-grss-data-fusion-contest/) · [Debes et al., 2014](https://doi.org/10.1109/JSTARS.2014.2305441)
+
+<img src="data/Houston/preview.png" width="720" alt="Houston 2013 ground truth">
+
+---
+
+### 8. 特伦托（Trento）
+
+- **场景**：意大利 Trento 以南的乡村地区
+- **传感器**：AISA Eagle 高光谱传感器和 Optech ALTM 3100EA LiDAR
+- **数据**：166 × 600 像素，63 个高光谱波段，空间分辨率 1 m
+- **类别**：[6 类，30,214 个标注像素](data/Trento/Class_details.md)
+- **来源与论文**：[University of Trento RSLab](https://rslab.disi.unitn.it/) · [Ghamisi, Höfle, and Zhu, 2017](https://doi.org/10.1109/JSTARS.2016.2634863) · [社区下载镜像](https://github.com/tyust-dayu/Trento)
+
+<img src="data/Trento/preview.png" width="720" alt="Trento ground truth">
+
+---
+
+### 9. WHU-Hi-LongKou
+
+- **采集**：2018 年 7 月 17 日 13:49–14:37，中国湖北省龙口镇
+- **平台与传感器**：DJI M600 Pro 无人机搭载 Headwall Nano-Hyperspec
+- **数据**：550 × 400 像素，270 个波段，空间分辨率 0.463 m
+- **类别**：[9 类，204,542 个标注像素](data/WHU-Hi-LongKou/Class_details.md)
+- **来源与论文**：[武汉大学 RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
+
+<img src="data/WHU-Hi-LongKou/preview.png" width="720" alt="WHU-Hi-LongKou ground truth">
+
+---
+
+### 10. WHU-Hi-HanChuan
+
+- **采集**：2016 年 6 月 17 日 17:57–18:46，中国湖北省汉川市
+- **平台与传感器**：Leica Aibot X6 无人机搭载 Headwall Nano-Hyperspec
+- **数据**：1217 × 303 像素，274 个波段，空间分辨率 0.109 m
+- **类别**：[16 类，257,530 个标注像素](data/WHU-Hi-HanChuan/Class_details.md)
+- **来源与论文**：[武汉大学 RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
+
+<img src="data/WHU-Hi-HanChuan/preview.png" width="720" alt="WHU-Hi-HanChuan ground truth">
+
+---
+
+### 11. WHU-Hi-HongHu
+
+- **采集**：2017 年 11 月 20 日 16:23–17:37，中国湖北省洪湖市
+- **平台与传感器**：DJI M600 Pro 无人机搭载 Headwall Nano-Hyperspec
+- **数据**：940 × 475 像素，270 个波段，空间分辨率 0.043 m
+- **类别**：[22 类，386,693 个标注像素](data/WHU-Hi-HongHu/Class_details.md)
+- **来源与论文**：[武汉大学 RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
+
+<img src="data/WHU-Hi-HongHu/preview.png" width="720" alt="WHU-Hi-HongHu ground truth">
+
+---
+
+### 12. 筑西（Chikusei）
+
+- **采集**：2014 年 7 月 29 日 09:56–10:53（UTC+9），日本茨城县筑西市
+- **传感器**：Headwall Hyperspec-VNIR-C
+- **数据**：2517 × 2335 像素，128 个波段，波长范围 363–1018 nm，空间分辨率 2.5 m
+- **类别**：[19 类，77,592 个标注像素](data/Chikusei/Class_details.md)
+- **来源与引用**：[Naoto Yokoya 数据页](https://naotoyokoya.com/Download.html) · N. Yokoya and A. Iwasaki, “Airborne hyperspectral data over Chikusei,” SAL-2016-05-27, 2016
+
+<img src="data/Chikusei/preview.png" width="720" alt="Chikusei ground truth">
+
+---
+
+### 13. HyRANK
+
+- **场景**：Dioni、Loukia、Erato、Kirki 和 Nefeli
+- **传感器**：EO-1 Hyperion
+- **数据**：每景 176 个波段，空间分辨率 30 m；Dioni 为 250 × 1376 像素，Loukia 为 249 × 945 像素
+- **类别**：[Dioni 为 12 类、20,024 个标注像素；Loukia 为 14 类、13,503 个标注像素](data/HyRANK/Class_details.md)
+- **来源与论文**：[HyRANK 数据记录](https://doi.org/10.5281/zenodo.1222202) · [ISPRS 项目报告](https://www.isprs.org/society/si/SI-2017/ISPRS-SI2017-TC3_WG4_Karantzalos_Report.pdf)
+
+<img src="data/HyRANK/preview.png" width="720" alt="HyRANK ground truth">
+
+---
+
+### 14. MUUFL Gulfport
+
+- **采集**：2010 年 11 月 8 日，美国密西西比州 Long Beach 的 University of Southern Mississippi Gulf Park campus
+- **传感器**：CASI-1500 高光谱传感器和 Gemini LiDAR
+- **数据**：Campus 1 下采样版本为 325 × 220 像素、64 个波段、空间分辨率 1 m；原始采集为 72 个波段、0.5 m
+- **类别**：[11 类，53,687 个标注像素](data/MUUFL_Gulfport/Class_details.md)
+- **来源与论文**：[GatorSense / University of Florida](https://github.com/GatorSense/MUUFLGulfport) · [REP-2013-570](https://github.com/GatorSense/MUUFLGulfport/blob/master/MUUFLGulfportDataCollection/MUUFLGulfportTechReport.pdf) · [场景标签报告](https://ufdc.ufl.edu/IR00009711/00001)
+
+<img src="data/MUUFL_Gulfport/preview.png" width="720" alt="MUUFL Gulfport ground truth">
+
+---
+
+### 15. 雄安（Xiongan）
+
+- **采集**：2017 年 10 月 3 日 15:40–16:03，中国河北省雄安新区马蹄湾村
+- **传感器**：AMMIS VNIR
+- **数据**：1580 × 3750 像素，空间分辨率 0.5 m；官方数据记录为 250 个有效波段，下载文件头为 256 个原始波段
+- **类别**：[Groundtruth 为 19 类、3,341,881 个标注像素；Farm_roi 为 20 类、3,677,110 个标注像素](data/Xiongan/Class_details.md)
+- **来源与论文**：[官方数据记录](https://doi.org/10.3974/geodb.2021.01.02.V1) · [岑奕等，2020](https://doi.org/10.11834/jrs.20209065)
+
+<img src="data/Xiongan/preview.png" width="720" alt="Xiongan ground truth">

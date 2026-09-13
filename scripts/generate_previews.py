@@ -107,6 +107,16 @@ def fit(image: Image.Image, width: int, height: int) -> Image.Image:
     return image.resize(size, Image.Resampling.NEAREST)
 
 
+def card_image(image: Image.Image, width: int, height: int) -> Image.Image:
+    """Place every scene in the same landscape viewport without distortion."""
+    if image.height > image.width * 1.15:
+        image = image.transpose(Image.Transpose.ROTATE_90)
+    viewport = Image.new("RGB", (width, height), "#f4f5f7")
+    fitted = fit(image, width - 18, height - 18)
+    viewport.paste(fitted, ((width - fitted.width) // 2, (height - fitted.height) // 2))
+    return viewport
+
+
 def paired_preview(left: Image.Image, right: Image.Image) -> Image.Image:
     canvas = Image.new("RGB", (1200, 470), "#ffffff")
     draw = ImageDraw.Draw(canvas)
@@ -120,9 +130,10 @@ def paired_preview(left: Image.Image, right: Image.Image) -> Image.Image:
 
 
 def overview(previews: list[tuple[Preview, Image.Image]]) -> Image.Image:
-    columns, rows = 3, 5
-    tile_width, tile_height = 520, 285
-    margin, gap = 36, 18
+    columns, rows = 5, 3
+    tile_width, tile_height = 318, 252
+    viewport_width, viewport_height = 282, 166
+    margin, gap = 28, 14
     canvas = Image.new(
         "RGB",
         (
@@ -132,8 +143,8 @@ def overview(previews: list[tuple[Preview, Image.Image]]) -> Image.Image:
         "#eef1f6",
     )
     draw = ImageDraw.Draw(canvas)
-    title_font = load_font(27, bold=True)
-    note_font = load_font(20)
+    title_font = load_font(22, bold=True)
+    note_font = load_font(17)
 
     for index, (preview, image) in enumerate(previews):
         row, column = divmod(index, columns)
@@ -141,19 +152,24 @@ def overview(previews: list[tuple[Preview, Image.Image]]) -> Image.Image:
         y = margin + row * (tile_height + gap)
         draw.rounded_rectangle(
             (x, y, x + tile_width, y + tile_height),
-            radius=18,
+            radius=14,
             fill="#ffffff",
             outline="#d8dde8",
             width=2,
         )
-        draw.text((x + 22, y + 16), preview.name, fill="#172033", font=title_font)
-        note = f"{preview.labeled_pixels:,} labeled pixels"
-        draw.text((x + 22, y + tile_height - 40), note, fill="#596579", font=note_font)
-        fitted = fit(image, tile_width - 44, tile_height - 100)
-        canvas.paste(
-            fitted,
-            (x + (tile_width - fitted.width) // 2, y + 55 + (tile_height - 105 - fitted.height) // 2),
+        draw.text((x + 18, y + 13), preview.name, fill="#172033", font=title_font)
+        viewport = card_image(image, viewport_width, viewport_height)
+        viewport_x = x + (tile_width - viewport_width) // 2
+        viewport_y = y + 48
+        canvas.paste(viewport, (viewport_x, viewport_y))
+        draw.rounded_rectangle(
+            (viewport_x, viewport_y, viewport_x + viewport_width, viewport_y + viewport_height),
+            radius=7,
+            outline="#e0e4eb",
+            width=1,
         )
+        note = f"{preview.labeled_pixels:,} px"
+        draw.text((x + 18, y + tile_height - 29), note, fill="#687386", font=note_font)
     return canvas
 
 
@@ -200,6 +216,7 @@ def build(source_root: Path) -> None:
     for preview in previews:
         image = render_label(preview.label)
         save_png(image, REPO_ROOT / "data" / preview.output_dir / "gt.png")
+        save_png(card_image(image, 960, 320), REPO_ROOT / "data" / preview.output_dir / "preview.png")
         rendered.append((preview, image))
 
     dioni_image = render_label(dioni)
@@ -208,6 +225,7 @@ def build(source_root: Path) -> None:
     save_png(loukia_image, REPO_ROOT / "data/HyRANK/loukia_gt.png")
     hyrank_image = paired_preview(dioni_image, loukia_image)
     save_png(hyrank_image, REPO_ROOT / "data/HyRANK/gt.png")
+    save_png(card_image(hyrank_image, 960, 320), REPO_ROOT / "data/HyRANK/preview.png")
     hyrank_preview = Preview("HyRANK (Dioni + Loukia)", "HyRANK", dioni, hyrank_count)
     rendered.insert(13, (hyrank_preview, hyrank_image))
 
