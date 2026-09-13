@@ -1,19 +1,21 @@
-# Botswana 数据集类别详细说明
+# Botswana — class statistics
 
-| #   | 类别                           | 样本数量 |
-|-----|-------------------------------|----------|
-| 1   | Water                         | 250      |
-| 2   | Hippo_grass                   | 1057     |
-| 3   | Floodplain_grasses1           | 250      |
-| 4   | Floodplain_grasses2           | 250      |
-| 5   | Reeds                         | 126      |
-| 6   | Riparian                      | 225      |
-| 7   | Firescar                      | 114      |
-| 8   | Island_interior               | 274      |
-| 9   | Acacia_woodlands              | 197      |
-| 10  | Acacia_shrublands             | 150      |
-| 11  | Acacia_grasslands             | 218      |
-| 12  | Short_mopane                  | 484      |
-| 13  | Mixed_mopane                  | 614      |
-| 14  | Exposed_soils                 | 657      |
-| |Total                               | 4866     |
+> Source: [UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes). Counts were computed from Botswana_gt.mat; label 0 is excluded.
+
+| ID | Source class name | Labeled pixels |
+|---:|---|---:|
+| 1 | Water | 270 |
+| 2 | Hippo grass | 101 |
+| 3 | Floodplain grasses 1 | 251 |
+| 4 | Floodplain grasses 2 | 215 |
+| 5 | Reeds | 269 |
+| 6 | Riparian | 269 |
+| 7 | Firescar | 259 |
+| 8 | Island interior | 203 |
+| 9 | Acacia woodlands | 314 |
+| 10 | Acacia shrublands | 248 |
+| 11 | Acacia grasslands | 305 |
+| 12 | Short mopane | 181 |
+| 13 | Mixed mopane | 268 |
+| 14 | Exposed soils | 95 |
+|  | **Total** | **3,248** |

@@ -1,0 +1,14 @@
+# Large local dataset payloads are distributed through their original sources or mirrors.
+HSI_data/
+__pycache__/
+*.pyc
+*.7z
+*.rar
+*.zip
+*.mat
+*.tif
+*.tiff
+*.img
+*.hdr
+*.h5
+*.hdf5
