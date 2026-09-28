@@ -3,7 +3,9 @@
 Every cube face is derived from the downloaded hyperspectral data. The front
 face is a three-band composite; the top and right faces are colour-mapped
 spectral cross-sections through the same cube. Source cubes are sampled in
-memory and are never copied into the repository.
+memory and are never copied into the repository. Portrait scenes are rotated
+for display, and each preview includes a numbered colour legend read from its
+class-details page.
 """
 
 from __future__ import annotations
@@ -11,6 +13,7 @@ from __future__ import annotations
 import argparse
 import gc
 import math
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -20,7 +23,7 @@ import scipy.io as sio
 import tifffile
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
-from generate_previews import fit, load_font, save_png
+from generate_previews import PALETTE, fit, load_font, save_png
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -43,6 +46,12 @@ class SampledCube:
     data: np.ndarray
     band_indices: np.ndarray
     original_shape: tuple[int, int, int]
+
+
+@dataclass(frozen=True)
+class LegendGroup:
+    title: str
+    names: tuple[str, ...]
 
 
 CUBE_SPECS = [
@@ -257,6 +266,60 @@ def load_cube(spec: CubeSpec, source_root: Path) -> SampledCube:
     raise ValueError(f"Unknown cube kind: {spec.kind}")
 
 
+def rotate_for_display(cube: SampledCube) -> SampledCube:
+    """Rotate portrait scenes so the spatial image remains readable on GitHub."""
+    rows, columns, bands = cube.original_shape
+    if rows <= columns * 1.25:
+        return cube
+    return SampledCube(
+        np.rot90(cube.data, k=1, axes=(0, 1)),
+        cube.band_indices,
+        (columns, rows, bands),
+    )
+
+
+def needs_display_rotation(shape: tuple[int, int, int]) -> bool:
+    return shape[0] > shape[1] * 1.25
+
+
+def class_legend_groups(class_details_path: Path) -> list[LegendGroup]:
+    groups: list[LegendGroup] = []
+    title = "Classes"
+    names: list[str] = []
+
+    def finish_group() -> None:
+        nonlocal names
+        if names:
+            groups.append(LegendGroup(title, tuple(names)))
+            names = []
+
+    for line in class_details_path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("## "):
+            finish_group()
+            section = line[3:].strip()
+            if section == "Groundtruth.img":
+                title = "Groundtruth classes"
+            elif section == "Farm_roi.img":
+                title = "Farm ROI classes"
+            else:
+                title = section
+            continue
+        match = re.match(r"\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|", line)
+        if not match:
+            continue
+        class_id = int(match.group(1))
+        if class_id != len(names) + 1:
+            raise ValueError(
+                f"Non-contiguous class IDs in {class_details_path}: "
+                f"expected {len(names) + 1}, received {class_id}"
+            )
+        names.append(match.group(2).strip())
+    finish_group()
+    if not groups:
+        raise ValueError(f"No class names found in {class_details_path}")
+    return groups
+
+
 def valid_values(array: np.ndarray) -> np.ndarray:
     values = array[np.isfinite(array)]
     positive = values[values > 0]
@@ -452,8 +515,146 @@ def render_hyrank(source_root: Path) -> Image.Image:
     return canvas
 
 
-def combined_preview(cube: Image.Image, ground_truth_path: Path) -> Image.Image:
-    canvas = Image.new("RGB", (1500, 560), "#ffffff")
+def ground_truth_panel(
+    output_root: Path,
+    rotate: bool,
+    size: tuple[int, int] = (520, 445),
+) -> Image.Image:
+    if output_root.name == "HyRANK":
+        items = [
+            ("Dioni", output_root / "dioni_gt.png"),
+            ("Loukia", output_root / "loukia_gt.png"),
+        ]
+    elif output_root.name == "Xiongan":
+        items = [
+            ("Groundtruth", output_root / "gt.png"),
+            ("Farm ROI", output_root / "farm_roi.png"),
+        ]
+    else:
+        items = [("", output_root / "gt.png")]
+
+    panel = Image.new("RGB", size, "#f7f8fa")
+    if len(items) == 1:
+        with Image.open(items[0][1]) as source:
+            image = source.convert("RGB")
+        if rotate:
+            image = image.transpose(Image.Transpose.ROTATE_90)
+        fitted = fit(image, size[0] - 18, size[1] - 18)
+        panel.paste(
+            fitted,
+            ((size[0] - fitted.width) // 2, (size[1] - fitted.height) // 2),
+        )
+        return panel
+
+    draw = ImageDraw.Draw(panel)
+    title_font = load_font(18, bold=True)
+    title_height = 24
+    gap = 10
+    slot_height = (size[1] - 12 - len(items) * title_height - gap) // len(items)
+    y = 6
+    for title, path in items:
+        bounds = draw.textbbox((0, 0), title, font=title_font)
+        title_width = bounds[2] - bounds[0]
+        draw.text(
+            ((size[0] - title_width) / 2, y),
+            title,
+            fill="#172033",
+            font=title_font,
+        )
+        y += title_height
+        with Image.open(path) as source:
+            image = source.convert("RGB")
+        fitted = fit(image, size[0] - 18, slot_height)
+        panel.paste(
+            fitted,
+            ((size[0] - fitted.width) // 2, y + (slot_height - fitted.height) // 2),
+        )
+        y += slot_height + gap
+    return panel
+
+
+def palette_rgb(class_id: int) -> tuple[int, int, int]:
+    colour = PALETTE[class_id].lstrip("#")
+    return tuple(int(colour[index : index + 2], 16) for index in (0, 2, 4))
+
+
+def legend_columns(group: LegendGroup) -> int:
+    return 4 if len(group.names) >= 16 else 3
+
+
+def legend_group_height(group: LegendGroup) -> int:
+    rows = math.ceil(len(group.names) / legend_columns(group))
+    return 58 + rows * 38
+
+
+def render_legends(groups: list[LegendGroup], width: int = 1500) -> Image.Image:
+    gap = 12
+    height = sum(legend_group_height(group) for group in groups) + gap * (len(groups) - 1)
+    canvas = Image.new("RGB", (width, height), "#ffffff")
+    draw = ImageDraw.Draw(canvas)
+    heading_font = load_font(23, bold=True)
+    label_font = load_font(19)
+    number_font = load_font(14, bold=True)
+    y = 0
+
+    for group in groups:
+        group_height = legend_group_height(group)
+        draw.rounded_rectangle(
+            (20, y, width - 20, y + group_height - 2),
+            radius=14,
+            fill="#f7f8fa",
+            outline="#d8dde8",
+            width=2,
+        )
+        draw.text((40, y + 15), group.title, fill="#172033", font=heading_font)
+        columns = legend_columns(group)
+        column_width = (width - 80) // columns
+        item_y = y + 54
+        swatch_size = 27
+        for index, name in enumerate(group.names):
+            row, column = divmod(index, columns)
+            class_id = index + 1
+            x = 40 + column * column_width
+            top = item_y + row * 38
+            colour = palette_rgb(class_id)
+            draw.rounded_rectangle(
+                (x, top, x + swatch_size, top + swatch_size),
+                radius=4,
+                fill=colour,
+                outline="#4a5568",
+                width=1,
+            )
+            luminance = 0.2126 * colour[0] + 0.7152 * colour[1] + 0.0722 * colour[2]
+            number_colour = "#ffffff" if luminance < 135 else "#172033"
+            number = str(class_id)
+            bounds = draw.textbbox((0, 0), number, font=number_font)
+            draw.text(
+                (
+                    x + (swatch_size - (bounds[2] - bounds[0])) / 2,
+                    top + (swatch_size - (bounds[3] - bounds[1])) / 2 - 1,
+                ),
+                number,
+                fill=number_colour,
+                font=number_font,
+            )
+            draw.text(
+                (x + swatch_size + 10, top + 2),
+                name,
+                fill="#172033",
+                font=label_font,
+            )
+        y += group_height + gap
+    return canvas
+
+
+def combined_preview(
+    cube: Image.Image,
+    output_root: Path,
+    rotate_labels: bool,
+    legend_groups: list[LegendGroup],
+) -> Image.Image:
+    legends = render_legends(legend_groups)
+    canvas = Image.new("RGB", (1500, 570 + legends.height), "#ffffff")
     draw = ImageDraw.Draw(canvas)
     title_font = load_font(24, bold=True)
     cards = ((20, 55, 920, 540), (940, 55, 1480, 540))
@@ -467,34 +668,41 @@ def combined_preview(cube: Image.Image, ground_truth_path: Path) -> Image.Image:
 
     cube_fitted = cube.resize((880, 460), Image.Resampling.LANCZOS)
     canvas.paste(cube_fitted, (40, 67))
-
-    with Image.open(ground_truth_path) as source:
-        ground_truth = source.convert("RGB")
-    ground_truth_fitted = fit(ground_truth, 510, 445)
-    label_x = 1210 - ground_truth_fitted.width // 2
-    label_y = 75 + (445 - ground_truth_fitted.height) // 2
-    canvas.paste(ground_truth_fitted, (label_x, label_y))
+    labels = ground_truth_panel(output_root, rotate_labels)
+    canvas.paste(labels, (950, 75))
+    canvas.paste(legends, (0, 560))
     return canvas
 
 
 def build(source_root: Path) -> None:
     for spec in CUBE_SPECS:
         cube = load_cube(spec, source_root)
-        rendered = render_cube(cube, spec.rgb_bands)
+        display_cube = rotate_for_display(cube)
+        rendered = render_cube(display_cube, spec.rgb_bands)
         output_root = REPO_ROOT / "data" / spec.output_dir
+        legend_groups = class_legend_groups(output_root / "Class_details.md")
         save_png(rendered, output_root / "cube.png")
         save_png(
-            combined_preview(rendered, output_root / "gt.png"),
+            combined_preview(
+                rendered,
+                output_root,
+                needs_display_rotation(spec.shape),
+                legend_groups,
+            ),
             output_root / "preview.png",
         )
         print(f"{spec.name}: {spec.shape[0]} x {spec.shape[1]} x {spec.shape[2]}")
-        del cube, rendered
+        del cube, display_cube, rendered
         gc.collect()
 
     hyrank = render_hyrank(source_root)
     hyrank_root = REPO_ROOT / "data/HyRANK"
+    hyrank_legends = class_legend_groups(hyrank_root / "Class_details.md")
     save_png(hyrank, hyrank_root / "cube.png")
-    save_png(combined_preview(hyrank, hyrank_root / "gt.png"), hyrank_root / "preview.png")
+    save_png(
+        combined_preview(hyrank, hyrank_root, False, hyrank_legends),
+        hyrank_root / "preview.png",
+    )
     print("HyRANK: Dioni and Loukia")
 
 
