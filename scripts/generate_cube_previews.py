@@ -5,7 +5,8 @@ face is a three-band composite; the top and right faces are colour-mapped
 spectral cross-sections through the same cube. Source cubes are sampled in
 memory and are never copied into the repository. Portrait scenes are rotated
 for display, and each preview includes a numbered colour legend read from its
-class-details page.
+class-details page. README previews are rendered at 2x density for sharp text
+and imagery on high-density displays.
 """
 
 from __future__ import annotations
@@ -188,8 +189,8 @@ CUBE_SPECS = [
 def sampling_steps(shape: tuple[int, int, int]) -> tuple[int, int, int]:
     rows, columns, bands = shape
     return (
-        max(1, math.ceil(rows / 650)),
-        max(1, math.ceil(columns / 650)),
+        max(1, math.ceil(rows / 900)),
+        max(1, math.ceil(columns / 900)),
         max(1, math.ceil(bands / 96)),
     )
 
@@ -392,17 +393,17 @@ def shear_right(image: Image.Image, depth_y: int) -> Image.Image:
 def render_cube(
     cube: SampledCube,
     rgb_bands: tuple[int, int, int],
-    canvas_size: tuple[int, int] = (900, 470),
-    max_front: tuple[int, int] = (520, 330),
-    depth: tuple[int, int] = (115, 68),
+    canvas_size: tuple[int, int] = (1800, 940),
+    max_front: tuple[int, int] = (1400, 720),
+    depth: tuple[int, int] = (280, 150),
 ) -> Image.Image:
     canvas_width, canvas_height = canvas_size
     maximum_width, maximum_height = max_front
     depth_x, depth_y = depth
     rows, columns, _ = cube.original_shape
     ratio = min(maximum_width / columns, maximum_height / rows)
-    front_width = max(42, round(columns * ratio))
-    front_height = max(42, round(rows * ratio))
+    front_width = max(84, round(columns * ratio))
+    front_height = max(84, round(rows * ratio))
 
     front = rgb_composite(cube, rgb_bands).resize(
         (front_width, front_height), Image.Resampling.LANCZOS
@@ -420,23 +421,23 @@ def render_cube(
 
     total_width = front_width + depth_x
     total_height = front_height + depth_y
-    left = max(8, (canvas_width - total_width) // 2)
-    front_top = max(depth_y + 8, (canvas_height - total_height) // 2 + depth_y)
+    left = max(16, (canvas_width - total_width) // 2)
+    front_top = max(depth_y + 16, (canvas_height - total_height) // 2 + depth_y)
 
     canvas = Image.new("RGBA", canvas_size, "#f7f8fa")
     shadow = Image.new("RGBA", canvas_size, (0, 0, 0, 0))
     shadow_draw = ImageDraw.Draw(shadow)
     shadow_draw.rounded_rectangle(
         (
-            left + 5,
-            front_top - depth_y + 8,
-            left + total_width + 10,
-            front_top + front_height + 13,
+            left + 10,
+            front_top - depth_y + 16,
+            left + total_width + 20,
+            front_top + front_height + 26,
         ),
-        radius=10,
+        radius=20,
         fill=(21, 31, 50, 42),
     )
-    canvas.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(9)))
+    canvas.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(18)))
     canvas.alpha_composite(top, (left, front_top - depth_y))
     canvas.alpha_composite(right, (left + front_width, front_top - depth_y))
     canvas.alpha_composite(front.convert("RGBA"), (left, front_top))
@@ -452,7 +453,7 @@ def render_cube(
             (left, front_top),
         ],
         fill=edge,
-        width=2,
+        width=4,
         joint="curve",
     )
     draw.line(
@@ -464,7 +465,7 @@ def render_cube(
             (left + front_width, front_top),
         ],
         fill=edge,
-        width=2,
+        width=4,
         joint="curve",
     )
     draw.rectangle(
@@ -475,7 +476,7 @@ def render_cube(
             front_top + front_height - 1,
         ),
         outline=edge,
-        width=2,
+        width=4,
     )
     return canvas.convert("RGB")
 
@@ -499,26 +500,26 @@ def render_hyrank(source_root: Path) -> Image.Image:
 
     dioni = load_absolute(dioni_spec)
     loukia = load_absolute(loukia_spec)
-    canvas = Image.new("RGB", (900, 470), "#f7f8fa")
-    title_font = load_font(20, bold=True)
-    for cube, spec, y in ((dioni, dioni_spec, 25), (loukia, loukia_spec, 247)):
+    canvas = Image.new("RGB", (1800, 940), "#f7f8fa")
+    title_font = load_font(40, bold=True)
+    for cube, spec, y in ((dioni, dioni_spec, 50), (loukia, loukia_spec, 494)):
         rendered = render_cube(
             cube,
             spec.rgb_bands,
-            canvas_size=(840, 195),
-            max_front=(600, 112),
-            depth=(90, 45),
+            canvas_size=(1680, 390),
+            max_front=(1380, 244),
+            depth=(240, 104),
         )
-        canvas.paste(rendered, (30, y))
+        canvas.paste(rendered, (60, y))
         draw = ImageDraw.Draw(canvas)
-        draw.text((40, y + 5), spec.name, fill="#172033", font=title_font)
+        draw.text((80, y + 10), spec.name, fill="#172033", font=title_font)
     return canvas
 
 
 def ground_truth_panel(
     output_root: Path,
     rotate: bool,
-    size: tuple[int, int] = (520, 445),
+    size: tuple[int, int] = (1415, 750),
 ) -> Image.Image:
     if output_root.name == "HyRANK":
         items = [
@@ -539,7 +540,7 @@ def ground_truth_panel(
             image = source.convert("RGB")
         if rotate:
             image = image.transpose(Image.Transpose.ROTATE_90)
-        fitted = fit(image, size[0] - 18, size[1] - 18)
+        fitted = fit(image, size[0] - 32, size[1] - 32)
         panel.paste(
             fitted,
             ((size[0] - fitted.width) // 2, (size[1] - fitted.height) // 2),
@@ -547,12 +548,18 @@ def ground_truth_panel(
         return panel
 
     draw = ImageDraw.Draw(panel)
-    title_font = load_font(18, bold=True)
-    title_height = 24
-    gap = 10
-    slot_height = (size[1] - 12 - len(items) * title_height - gap) // len(items)
-    y = 6
-    for title, path in items:
+    title_font = load_font(38, bold=True)
+    title_height = 48
+    gap = 20
+    outer_margin = 12
+    slot_height = (
+        size[1]
+        - outer_margin * 2
+        - len(items) * title_height
+        - (len(items) - 1) * gap
+    ) // len(items)
+    y = outer_margin
+    for item_index, (title, path) in enumerate(items):
         bounds = draw.textbbox((0, 0), title, font=title_font)
         title_width = bounds[2] - bounds[0]
         draw.text(
@@ -564,12 +571,14 @@ def ground_truth_panel(
         y += title_height
         with Image.open(path) as source:
             image = source.convert("RGB")
-        fitted = fit(image, size[0] - 18, slot_height)
+        fitted = fit(image, size[0] - 32, slot_height)
         panel.paste(
             fitted,
             ((size[0] - fitted.width) // 2, y + (slot_height - fitted.height) // 2),
         )
-        y += slot_height + gap
+        y += slot_height
+        if item_index < len(items) - 1:
+            y += gap
     return panel
 
 
@@ -579,50 +588,50 @@ def palette_rgb(class_id: int) -> tuple[int, int, int]:
 
 
 def legend_columns(group: LegendGroup) -> int:
-    return 4 if len(group.names) >= 16 else 3
+    return 4 if len(group.names) >= 20 else 3
 
 
 def legend_group_height(group: LegendGroup) -> int:
     rows = math.ceil(len(group.names) / legend_columns(group))
-    return 58 + rows * 38
+    return 120 + rows * 90
 
 
-def render_legends(groups: list[LegendGroup], width: int = 1500) -> Image.Image:
-    gap = 12
+def render_legends(groups: list[LegendGroup], width: int = 3000) -> Image.Image:
+    gap = 24
     height = sum(legend_group_height(group) for group in groups) + gap * (len(groups) - 1)
     canvas = Image.new("RGB", (width, height), "#ffffff")
     draw = ImageDraw.Draw(canvas)
-    heading_font = load_font(23, bold=True)
-    label_font = load_font(19)
-    number_font = load_font(14, bold=True)
+    heading_font = load_font(58, bold=True)
+    label_font = load_font(50)
+    number_font = load_font(36, bold=True)
     y = 0
 
     for group in groups:
         group_height = legend_group_height(group)
         draw.rounded_rectangle(
-            (20, y, width - 20, y + group_height - 2),
-            radius=14,
+            (40, y, width - 40, y + group_height - 4),
+            radius=28,
             fill="#f7f8fa",
             outline="#d8dde8",
-            width=2,
+            width=4,
         )
-        draw.text((40, y + 15), group.title, fill="#172033", font=heading_font)
+        draw.text((80, y + 28), group.title, fill="#172033", font=heading_font)
         columns = legend_columns(group)
-        column_width = (width - 80) // columns
-        item_y = y + 54
-        swatch_size = 27
+        column_width = (width - 160) // columns
+        item_y = y + 112
+        swatch_size = 64
         for index, name in enumerate(group.names):
             row, column = divmod(index, columns)
             class_id = index + 1
-            x = 40 + column * column_width
-            top = item_y + row * 38
+            x = 80 + column * column_width
+            top = item_y + row * 90
             colour = palette_rgb(class_id)
             draw.rounded_rectangle(
                 (x, top, x + swatch_size, top + swatch_size),
-                radius=4,
+                radius=8,
                 fill=colour,
                 outline="#4a5568",
-                width=1,
+                width=2,
             )
             luminance = 0.2126 * colour[0] + 0.7152 * colour[1] + 0.0722 * colour[2]
             number_colour = "#ffffff" if luminance < 135 else "#172033"
@@ -631,14 +640,14 @@ def render_legends(groups: list[LegendGroup], width: int = 1500) -> Image.Image:
             draw.text(
                 (
                     x + (swatch_size - (bounds[2] - bounds[0])) / 2,
-                    top + (swatch_size - (bounds[3] - bounds[1])) / 2 - 1,
+                    top + (swatch_size - (bounds[3] - bounds[1])) / 2 - 2,
                 ),
                 number,
                 fill=number_colour,
                 font=number_font,
             )
             draw.text(
-                (x + swatch_size + 10, top + 2),
+                (x + swatch_size + 18, top + 5),
                 name,
                 fill="#172033",
                 font=label_font,
@@ -654,23 +663,32 @@ def combined_preview(
     legend_groups: list[LegendGroup],
 ) -> Image.Image:
     legends = render_legends(legend_groups)
-    canvas = Image.new("RGB", (1500, 570 + legends.height), "#ffffff")
+    canvas = Image.new("RGB", (3000, 950 + legends.height), "#ffffff")
     draw = ImageDraw.Draw(canvas)
-    title_font = load_font(24, bold=True)
-    cards = ((20, 55, 920, 540), (940, 55, 1480, 540))
+    title_font = load_font(64, bold=True)
+    cards = ((30, 90, 1485, 900), (1515, 90, 2970, 900))
     for card in cards:
-        draw.rounded_rectangle(card, radius=14, fill="#f7f8fa", outline="#d8dde8", width=2)
+        draw.rounded_rectangle(card, radius=28, fill="#f7f8fa", outline="#d8dde8", width=4)
 
-    for title, centre in (("Hyperspectral cube", 470), ("Ground truth", 1210)):
+    for title, centre in (("Hyperspectral cube", 758), ("Ground truth", 2243)):
         bounds = draw.textbbox((0, 0), title, font=title_font)
         width = bounds[2] - bounds[0]
-        draw.text((centre - width / 2, 15), title, fill="#172033", font=title_font)
+        draw.text((centre - width / 2, 18), title, fill="#172033", font=title_font)
 
-    cube_fitted = cube.resize((880, 460), Image.Resampling.LANCZOS)
-    canvas.paste(cube_fitted, (40, 67))
+    cube_ratio = min(1415 / cube.width, 750 / cube.height)
+    cube_size = (
+        max(1, round(cube.width * cube_ratio)),
+        max(1, round(cube.height * cube_ratio)),
+    )
+    cube_fitted = cube.resize(cube_size, Image.Resampling.LANCZOS)
+    cube_position = (
+        50 + (1415 - cube_fitted.width) // 2,
+        115 + (750 - cube_fitted.height) // 2,
+    )
+    canvas.paste(cube_fitted, cube_position)
     labels = ground_truth_panel(output_root, rotate_labels)
-    canvas.paste(labels, (950, 75))
-    canvas.paste(legends, (0, 560))
+    canvas.paste(labels, (1535, 115))
+    canvas.paste(legends, (0, 930))
     return canvas
 
 

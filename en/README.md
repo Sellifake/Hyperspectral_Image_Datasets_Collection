@@ -21,7 +21,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 16
 - **Source:** [Purdue MultiSpec](https://engineering.purdue.edu/~biehl/MultiSpec/hyperspectral.html) · [PURR data record](https://doi.org/10.4231/R7RX991C)
 
-<img src="../data/Indian_Pines/preview.png" width="960" alt="Indian Pines hyperspectral cube and ground truth">
+<img src="../data/Indian_Pines/preview.png" width="100%" alt="Indian Pines hyperspectral cube and ground truth">
 
 ---
 
@@ -33,7 +33,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 9
 - **Source:** [UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="../data/Pavia/preview.png" width="960" alt="Pavia University hyperspectral cube and ground truth">
+<img src="../data/Pavia/preview.png" width="100%" alt="Pavia University hyperspectral cube and ground truth">
 
 ---
 
@@ -45,7 +45,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 9
 - **Source:** [UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="../data/Pavia_Centre/preview.png" width="960" alt="Pavia Centre hyperspectral cube and ground truth">
+<img src="../data/Pavia_Centre/preview.png" width="100%" alt="Pavia Centre hyperspectral cube and ground truth">
 
 ---
 
@@ -57,7 +57,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 16
 - **Source:** [UPV/EHU data page](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) · [NASA/JPL AVIRIS 1998 flight index](https://aviris.jpl.nasa.gov/ql/listla98.html)
 
-<img src="../data/Salinas/preview.png" width="960" alt="Salinas hyperspectral cube and ground truth">
+<img src="../data/Salinas/preview.png" width="100%" alt="Salinas hyperspectral cube and ground truth">
 
 ---
 
@@ -69,7 +69,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 13
 - **Source:** [UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="../data/KSC/preview.png" width="960" alt="Kennedy Space Center hyperspectral cube and ground truth">
+<img src="../data/KSC/preview.png" width="100%" alt="Kennedy Space Center hyperspectral cube and ground truth">
 
 ---
 
@@ -81,7 +81,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 14
 - **Source:** [UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="../data/Botswana/preview.png" width="960" alt="Botswana hyperspectral cube and ground truth">
+<img src="../data/Botswana/preview.png" width="100%" alt="Botswana hyperspectral cube and ground truth">
 
 ---
 
@@ -93,7 +93,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 15
 - **Source and paper:** [IEEE GRSS 2013 Data Fusion Contest](https://www.grss-ieee.org/community/technical-committees/2013-ieee-grss-data-fusion-contest/) · [Debes et al., 2014](https://doi.org/10.1109/JSTARS.2014.2305441)
 
-<img src="../data/Houston/preview.png" width="960" alt="Houston 2013 hyperspectral cube and ground truth">
+<img src="../data/Houston/preview.png" width="100%" alt="Houston 2013 hyperspectral cube and ground truth">
 
 ---
 
@@ -105,7 +105,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 6
 - **Source and paper:** [University of Trento RSLab](https://rslab.disi.unitn.it/) · [Ghamisi, Höfle, and Zhu, 2017](https://doi.org/10.1109/JSTARS.2016.2634863) · [community download mirror](https://github.com/tyust-dayu/Trento)
 
-<img src="../data/Trento/preview.png" width="960" alt="Trento hyperspectral cube and ground truth">
+<img src="../data/Trento/preview.png" width="100%" alt="Trento hyperspectral cube and ground truth">
 
 ---
 
@@ -117,7 +117,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 9
 - **Source and paper:** [Wuhan University RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
 
-<img src="../data/WHU-Hi-LongKou/preview.png" width="960" alt="WHU-Hi-LongKou hyperspectral cube and ground truth">
+<img src="../data/WHU-Hi-LongKou/preview.png" width="100%" alt="WHU-Hi-LongKou hyperspectral cube and ground truth">
 
 ---
 
@@ -129,7 +129,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 16
 - **Source and paper:** [Wuhan University RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
 
-<img src="../data/WHU-Hi-HanChuan/preview.png" width="960" alt="WHU-Hi-HanChuan hyperspectral cube and ground truth">
+<img src="../data/WHU-Hi-HanChuan/preview.png" width="100%" alt="WHU-Hi-HanChuan hyperspectral cube and ground truth">
 
 ---
 
@@ -141,7 +141,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 22
 - **Source and paper:** [Wuhan University RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
 
-<img src="../data/WHU-Hi-HongHu/preview.png" width="960" alt="WHU-Hi-HongHu hyperspectral cube and ground truth">
+<img src="../data/WHU-Hi-HongHu/preview.png" width="100%" alt="WHU-Hi-HongHu hyperspectral cube and ground truth">
 
 ---
 
@@ -153,7 +153,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 19
 - **Source and citation:** [Naoto Yokoya data page](https://naotoyokoya.com/Download.html) · N. Yokoya and A. Iwasaki, “Airborne hyperspectral data over Chikusei,” SAL-2016-05-27, 2016
 
-<img src="../data/Chikusei/preview.png" width="960" alt="Chikusei hyperspectral cube and ground truth">
+<img src="../data/Chikusei/preview.png" width="100%" alt="Chikusei hyperspectral cube and ground truth">
 
 ---
 
@@ -165,7 +165,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 14-class taxonomy (12 classes occur in Dioni and all 14 occur in Loukia)
 - **Source and paper:** [HyRANK data record](https://doi.org/10.5281/zenodo.1222202) · [ISPRS project report](https://www.isprs.org/society/si/SI-2017/ISPRS-SI2017-TC3_WG4_Karantzalos_Report.pdf)
 
-<img src="../data/HyRANK/preview.png" width="960" alt="HyRANK hyperspectral cubes and ground truth">
+<img src="../data/HyRANK/preview.png" width="100%" alt="HyRANK hyperspectral cubes and ground truth">
 
 ---
 
@@ -177,7 +177,7 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 11
 - **Source and papers:** [GatorSense / University of Florida](https://github.com/GatorSense/MUUFLGulfport) · [REP-2013-570](https://github.com/GatorSense/MUUFLGulfport/blob/master/MUUFLGulfportDataCollection/MUUFLGulfportTechReport.pdf) · [scene-label report](https://ufdc.ufl.edu/IR00009711/00001)
 
-<img src="../data/MUUFL_Gulfport/preview.png" width="960" alt="MUUFL Gulfport hyperspectral cube and ground truth">
+<img src="../data/MUUFL_Gulfport/preview.png" width="100%" alt="MUUFL Gulfport hyperspectral cube and ground truth">
 
 ---
 
@@ -189,4 +189,4 @@ The primary data pages and papers are listed with each dataset.
 - **Classes:** 19 in Groundtruth; 20 in Farm_roi
 - **Source and paper:** [official data record](https://doi.org/10.3974/geodb.2021.01.02.V1) · [Cen et al., 2020](https://doi.org/10.11834/jrs.20209065)
 
-<img src="../data/Xiongan/preview.png" width="960" alt="Xiongan hyperspectral cube and ground truth">
+<img src="../data/Xiongan/preview.png" width="100%" alt="Xiongan hyperspectral cube and ground truth">
