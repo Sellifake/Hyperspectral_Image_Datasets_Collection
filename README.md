@@ -21,7 +21,7 @@
 - **类别**：[16 类，10,249 个标注像素](data/Indian_Pines/Class_details.md)
 - **来源**：[Purdue MultiSpec](https://engineering.purdue.edu/~biehl/MultiSpec/hyperspectral.html) · [PURR 数据记录](https://doi.org/10.4231/R7RX991C)
 
-<img src="data/Indian_Pines/preview.png" width="720" alt="Indian Pines ground truth">
+<img src="data/Indian_Pines/preview.png" width="960" alt="Indian Pines hyperspectral cube and ground truth">
 
 ---
 
@@ -33,7 +33,7 @@
 - **类别**：[9 类，42,776 个标注像素](data/Pavia/Class_details.md)
 - **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="data/Pavia/preview.png" width="720" alt="Pavia University ground truth">
+<img src="data/Pavia/preview.png" width="960" alt="Pavia University hyperspectral cube and ground truth">
 
 ---
 
@@ -45,7 +45,7 @@
 - **类别**：[9 类，148,152 个标注像素](data/Pavia_Centre/Class_details.md)
 - **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="data/Pavia_Centre/preview.png" width="720" alt="Pavia Centre ground truth">
+<img src="data/Pavia_Centre/preview.png" width="960" alt="Pavia Centre hyperspectral cube and ground truth">
 
 ---
 
@@ -57,7 +57,7 @@
 - **类别**：[16 类，54,129 个标注像素](data/Salinas/Class_details.md)
 - **来源**：[UPV/EHU 数据页](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) · [NASA/JPL AVIRIS 1998 飞行索引](https://aviris.jpl.nasa.gov/ql/listla98.html)
 
-<img src="data/Salinas/preview.png" width="720" alt="Salinas ground truth">
+<img src="data/Salinas/preview.png" width="960" alt="Salinas hyperspectral cube and ground truth">
 
 ---
 
@@ -69,7 +69,7 @@
 - **类别**：[13 类，5,211 个标注像素](data/KSC/Class_details.md)
 - **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="data/KSC/preview.png" width="720" alt="Kennedy Space Center ground truth">
+<img src="data/KSC/preview.png" width="960" alt="Kennedy Space Center hyperspectral cube and ground truth">
 
 ---
 
@@ -81,7 +81,7 @@
 - **类别**：[14 类，3,248 个标注像素](data/Botswana/Class_details.md)
 - **来源**：[UPV/EHU Hyperspectral Remote Sensing Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
-<img src="data/Botswana/preview.png" width="720" alt="Botswana ground truth">
+<img src="data/Botswana/preview.png" width="960" alt="Botswana hyperspectral cube and ground truth">
 
 ---
 
@@ -93,7 +93,7 @@
 - **类别**：[15 类，15,029 个标注像素](data/Houston/Class_details.md)
 - **来源与论文**：[IEEE GRSS 2013 Data Fusion Contest](https://www.grss-ieee.org/community/technical-committees/2013-ieee-grss-data-fusion-contest/) · [Debes et al., 2014](https://doi.org/10.1109/JSTARS.2014.2305441)
 
-<img src="data/Houston/preview.png" width="720" alt="Houston 2013 ground truth">
+<img src="data/Houston/preview.png" width="960" alt="Houston 2013 hyperspectral cube and ground truth">
 
 ---
 
@@ -105,7 +105,7 @@
 - **类别**：[6 类，30,214 个标注像素](data/Trento/Class_details.md)
 - **来源与论文**：[University of Trento RSLab](https://rslab.disi.unitn.it/) · [Ghamisi, Höfle, and Zhu, 2017](https://doi.org/10.1109/JSTARS.2016.2634863) · [社区下载镜像](https://github.com/tyust-dayu/Trento)
 
-<img src="data/Trento/preview.png" width="720" alt="Trento ground truth">
+<img src="data/Trento/preview.png" width="960" alt="Trento hyperspectral cube and ground truth">
 
 ---
 
@@ -117,7 +117,7 @@
 - **类别**：[9 类，204,542 个标注像素](data/WHU-Hi-LongKou/Class_details.md)
 - **来源与论文**：[武汉大学 RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
 
-<img src="data/WHU-Hi-LongKou/preview.png" width="720" alt="WHU-Hi-LongKou ground truth">
+<img src="data/WHU-Hi-LongKou/preview.png" width="960" alt="WHU-Hi-LongKou hyperspectral cube and ground truth">
 
 ---
 
@@ -129,7 +129,7 @@
 - **类别**：[16 类，257,530 个标注像素](data/WHU-Hi-HanChuan/Class_details.md)
 - **来源与论文**：[武汉大学 RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
 
-<img src="data/WHU-Hi-HanChuan/preview.png" width="720" alt="WHU-Hi-HanChuan ground truth">
+<img src="data/WHU-Hi-HanChuan/preview.png" width="960" alt="WHU-Hi-HanChuan hyperspectral cube and ground truth">
 
 ---
 
@@ -141,7 +141,7 @@
 - **类别**：[22 类，386,693 个标注像素](data/WHU-Hi-HongHu/Class_details.md)
 - **来源与论文**：[武汉大学 RSIDEA](https://rsidea.whu.edu.cn/e-resource_WHUHi_sharing.htm) · [Zhong et al., 2020](https://doi.org/10.1016/j.rse.2020.112012)
 
-<img src="data/WHU-Hi-HongHu/preview.png" width="720" alt="WHU-Hi-HongHu ground truth">
+<img src="data/WHU-Hi-HongHu/preview.png" width="960" alt="WHU-Hi-HongHu hyperspectral cube and ground truth">
 
 ---
 
@@ -153,7 +153,7 @@
 - **类别**：[19 类，77,592 个标注像素](data/Chikusei/Class_details.md)
 - **来源与引用**：[Naoto Yokoya 数据页](https://naotoyokoya.com/Download.html) · N. Yokoya and A. Iwasaki, “Airborne hyperspectral data over Chikusei,” SAL-2016-05-27, 2016
 
-<img src="data/Chikusei/preview.png" width="720" alt="Chikusei ground truth">
+<img src="data/Chikusei/preview.png" width="960" alt="Chikusei hyperspectral cube and ground truth">
 
 ---
 
@@ -165,7 +165,7 @@
 - **类别**：[Dioni 为 12 类、20,024 个标注像素；Loukia 为 14 类、13,503 个标注像素](data/HyRANK/Class_details.md)
 - **来源与论文**：[HyRANK 数据记录](https://doi.org/10.5281/zenodo.1222202) · [ISPRS 项目报告](https://www.isprs.org/society/si/SI-2017/ISPRS-SI2017-TC3_WG4_Karantzalos_Report.pdf)
 
-<img src="data/HyRANK/preview.png" width="720" alt="HyRANK ground truth">
+<img src="data/HyRANK/preview.png" width="960" alt="HyRANK hyperspectral cubes and ground truth">
 
 ---
 
@@ -177,7 +177,7 @@
 - **类别**：[11 类，53,687 个标注像素](data/MUUFL_Gulfport/Class_details.md)
 - **来源与论文**：[GatorSense / University of Florida](https://github.com/GatorSense/MUUFLGulfport) · [REP-2013-570](https://github.com/GatorSense/MUUFLGulfport/blob/master/MUUFLGulfportDataCollection/MUUFLGulfportTechReport.pdf) · [场景标签报告](https://ufdc.ufl.edu/IR00009711/00001)
 
-<img src="data/MUUFL_Gulfport/preview.png" width="720" alt="MUUFL Gulfport ground truth">
+<img src="data/MUUFL_Gulfport/preview.png" width="960" alt="MUUFL Gulfport hyperspectral cube and ground truth">
 
 ---
 
@@ -189,4 +189,4 @@
 - **类别**：[Groundtruth 为 19 类、3,341,881 个标注像素；Farm_roi 为 20 类、3,677,110 个标注像素](data/Xiongan/Class_details.md)
 - **来源与论文**：[官方数据记录](https://doi.org/10.3974/geodb.2021.01.02.V1) · [岑奕等，2020](https://doi.org/10.11834/jrs.20209065)
 
-<img src="data/Xiongan/preview.png" width="720" alt="Xiongan ground truth">
+<img src="data/Xiongan/preview.png" width="960" alt="Xiongan hyperspectral cube and ground truth">

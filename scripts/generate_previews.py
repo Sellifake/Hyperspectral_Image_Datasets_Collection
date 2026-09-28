@@ -1,4 +1,4 @@
-"""Generate consistent ground-truth previews from locally downloaded datasets.
+"""Generate ground-truth assets from locally downloaded datasets.
 
 The script reads label rasters only. It never copies hyperspectral cubes into this
 repository. Pixel values are preserved; nearest-neighbour resizing is used solely
@@ -216,7 +216,6 @@ def build(source_root: Path) -> None:
     for preview in previews:
         image = render_label(preview.label)
         save_png(image, REPO_ROOT / "data" / preview.output_dir / "gt.png")
-        save_png(card_image(image, 960, 320), REPO_ROOT / "data" / preview.output_dir / "preview.png")
         rendered.append((preview, image))
 
     dioni_image = render_label(dioni)
@@ -225,7 +224,6 @@ def build(source_root: Path) -> None:
     save_png(loukia_image, REPO_ROOT / "data/HyRANK/loukia_gt.png")
     hyrank_image = paired_preview(dioni_image, loukia_image)
     save_png(hyrank_image, REPO_ROOT / "data/HyRANK/gt.png")
-    save_png(card_image(hyrank_image, 960, 320), REPO_ROOT / "data/HyRANK/preview.png")
     hyrank_preview = Preview("HyRANK (Dioni + Loukia)", "HyRANK", dioni, hyrank_count)
     rendered.insert(13, (hyrank_preview, hyrank_image))
 
